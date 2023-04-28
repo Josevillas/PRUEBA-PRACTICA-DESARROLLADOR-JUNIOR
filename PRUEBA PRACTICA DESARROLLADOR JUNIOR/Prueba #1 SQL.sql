@@ -14,15 +14,12 @@ CREATE TABLE Cliente (
 );
 
 CREATE TABLE Reserva (
-  Numero_de_reserva IIDENTITY(1,1),
+  Numero_de_reserva INT IDENTITY(1,1),
   R_Nombre_del_cliente varchar(255),
   R_Numero_de_habitacion INT,
   Fecha_de_entrada DATE,
   Fecha_de_salida DATE,
-  FOREIGN KEY (R_Numero_de_habitacion) REFERENCES Habitacion(Numero_de_habitacion),
+  CONSTRAINT FK_Numero_de_habitacion FOREIGN KEY(R_Numero_de_habitacion) REFERENCES Habitacion(Numero_de_habitacion),
   FOREIGN KEY (R_Nombre_del_cliente) REFERENCES Cliente(Nombre_del_cliente),
   PRIMARY KEY (Numero_de_reserva)
 );
-
-
-
